@@ -1,0 +1,11 @@
+really had never run into this before! hilarious
+
+I tried something like this at first thinking logical comparisons would be best
+
+mapped_pairs = [(ord(left) - 65, ord(right) - 88) for left,right in pairs]
+
+Going to have a refactored version too
+
+---
+
+Looked at the reddit solutions and I feel much better about my approach now
