@@ -20,8 +20,7 @@ for move in moves.splitlines():
 
     count = 0 # Crane 9000; (read -> pop) * n
     while count < int(instructions[0]):
-        p1_stacks[instructions[2]].append(p1_stacks[instructions[1]][-1])
-        p1_stacks[instructions[1]].pop()
+        p1_stacks[instructions[2]].append(p1_stacks[instructions[1]].pop())
         count += 1
 
     move_buffer = [] # Crane 9001; (read * n) -> reverse -> push
