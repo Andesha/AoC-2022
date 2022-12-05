@@ -24,7 +24,7 @@ for move in moves.splitlines():
         p1_stacks[instructions[1]].pop()
         count += 1
 
-    move_buffer = [] # Crange 9001; (read * n) -> reverse -> push
+    move_buffer = [] # Crane 9001; (read * n) -> reverse -> push
     for _ in range(int(instructions[0])):
         move_buffer.append(p2_stacks[instructions[1]].pop())
     p2_stacks[instructions[2]].extend(move_buffer[::-1])
