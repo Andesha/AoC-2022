@@ -17,13 +17,13 @@ def tree_caster(j, i, y, x):
 visible_count, best_tree = 0, 0
 for y in trees_range:
     for x in trees_range:
-        ub, uc = tree_caster(1, 0, y, x)  # up
-        db, dc = tree_caster(-1, 0, y, x) # down
-        lb, lc = tree_caster(0, -1, y, x) # left
-        rb, rc = tree_caster(0, 1, y, x)  # right
-
-        if any([ub, db, rb, lb]):
-            visible_count += 1
-        best_tree = max(reduce(lambda x, y: x * y, [uc, dc, rc, lc]), best_tree)
+        scenic, valid = 1, False # accum vars
+        for move in [(1, 0), (-1, 0), (0, -1), (0, 1)]:
+            mv, mc = tree_caster(*move, y, x)
+            if not valid and mv: # if we haven't counted yet, and is valid
+                visible_count += 1
+            valid |= mv
+            scenic *= mc
+        best_tree = max(scenic, best_tree)
 
 print('Part 1: ', visible_count, 'Part 2: ', best_tree)
